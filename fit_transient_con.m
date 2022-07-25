@@ -5,7 +5,7 @@ function [output] = fit_transient_con(Vm,G,G_nonCFTR_Cl,TAU_nonCFTR,dt)
     Ki              = 1.9;
     Kcl             = 85;
 % Concentration inside and outside the cell (mM)
-    K_in            = 4.7/(10^(Vm/62));
+    K_in            = 100; % 4.7/(10^(Vm/62)); % 100mM OPTION
     K_out           = 4.7;
     I_out           = 100; 
     I_in            = 1.0000e-4;
@@ -26,8 +26,8 @@ function [output] = fit_transient_con(Vm,G,G_nonCFTR_Cl,TAU_nonCFTR,dt)
     E_Cl            = -62*(log10(Cl_out/Cl_in));
     E_I             = -62*(log10(I_out/I_in));
 % charachteristics HEK cells (L, cm^2, uF)
-    HEK_VOL         = 4/3*pi*((7*10^-6)^3)*10^3; % CHECK DIAMETER AND RADIUS OF HEKS
-    HEK_SURF        = 1.5*4*pi*((7*10^-6)^2)*10^4;
+    HEK_VOL         = 4/3*pi*((8.9*10^-6)^3)*10^3; % CHECK DIAMETER AND RADIUS OF HEKS
+    HEK_SURF        = 1.5*4*pi*((8.9*10^-6)^2)*10^4;
     C_HEK           = 1*HEK_SURF;
 % other parameters
 % TAU_nonCFTR   = 0;       % tau (s)
